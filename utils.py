@@ -127,6 +127,13 @@ def get_tempo(access_token, songID):
     tempo = track["tempo"]
     return(tempo)
 
+def get_time_signature(access_token, songID):
+    json_obj = search_request(access_token, "Happy People", "track")
+    songID = get_ID(json_obj)
+    track = get_track(access_token, songID)
+    time_signature = track["time_signature"]
+    return(time_signature)
+
 
 if __name__ == "__main__":
     main()
