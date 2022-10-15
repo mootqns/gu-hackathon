@@ -30,3 +30,39 @@ def make_request(access_token, full_url):
     json_object = json.loads(response.text)
 
     return json_object
+
+def search_request(access_token, search_term, search_type):
+    search_term = requests.utils.quote(search_term)
+    search_type = requests.utils.quote(search_type)
+    url = secret.search_API_endpoint + "?q=" + search_term
+    url += "&type=" + search_type
+    print(url)
+    json_obj = make_request(access_token, url)
+    return json_obj
+
+def get_ID(json_obj):
+    tracks = json_obj["tracks"]
+    items = tracks["items"]
+    first_tracks_item = items[0]
+    songID = first_tracks_item["id"]
+    return songID
+
+def get_track(access_token, id):
+    headers = {"Accept": "application/json", 
+               "Content-Type": "application/json", 
+               "Authorization": "Bearer " + access_token}
+    response = requests.get("https://api.spotify.com/v1/audio-features/"+id, headers=headers)
+    json_object = json.loads(response.text)
+    return json_object
+
+def get_acousticness(access_token):
+    access_token = get_access_token()
+    # choosing taylor swift as a test artist to get her genres back
+    json_obj = search_request(access_token, "Happy People", "track")
+    songID = get_ID(json_obj)
+    track = get_track(access_token, songID)
+    acousticness = track["acousticness"]
+    return(acousticness)
+
+if __name__ == "__main__":
+    main()
