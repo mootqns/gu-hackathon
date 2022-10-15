@@ -20,3 +20,13 @@ def get_access_token():
     json_object = json.loads(response.text)
     return json_object["access_token"]
 # function to load data
+
+def make_request(access_token, full_url):
+    headers = {"Accept": "application/json", 
+               "Content-Type": "application/json", 
+               "Authorization": "Bearer " + access_token}
+
+    response = requests.get(url=full_url, headers=headers)
+    json_object = json.loads(response.text)
+
+    return json_object
