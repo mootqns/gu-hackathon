@@ -1,0 +1,30 @@
+/*header at the top of the page*/
+.header {
+
+    font-family: Garamond, serif;
+    background-color: #ececec ;
+    text-align: center;
+    padding: 20px;
+    
+}
+
+
+/*main content*/
+.column {
+
+    font-family: Garamond, serif;
+    width: 100%;
+
+}
+
+
+
+/*footer for information at the bottom of the page*/
+.footer {
+
+    font-family: Garamond, serif;
+    background-color: #ececec;
+    text-align: center;
+    padding: 15px;
+    
+}
