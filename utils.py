@@ -64,5 +64,69 @@ def get_acousticness(access_token):
     acousticness = track["acousticness"]
     return(acousticness)
 
+def get_danceability(access_token, songID):
+    json_obj = search_request(access_token, "Happy People", "track")
+    songID = get_ID(json_obj)
+    track = get_track(access_token, songID)
+    danceability = track["danceability"]
+    return(danceability)
+
+def get_duration_ms(access_token, songID):
+    json_obj = search_request(access_token, "Happy People", "track")
+    songID = get_ID(json_obj)
+    track = get_track(access_token, songID)
+    duration_ms = track["duration_ms"]
+    return(duration_ms)
+
+def get_energy(access_token, songID):
+    json_obj = search_request(access_token, "Happy People", "track")
+    songID = get_ID(json_obj)
+    track = get_track(access_token, songID)
+    energy = track["energy"]
+    return(energy)
+
+def get_instrumentalness(access_token, songID):
+    json_obj = search_request(access_token, "Happy People", "track")
+    songID = get_ID(json_obj)
+    track = get_track(access_token, songID)
+    instrumentalness = track["instrumentalness"]
+    return(instrumentalness)
+    
+def get_key(access_token, songID):
+    json_obj = search_request(access_token, "Happy People", "track")
+    songID = get_ID(json_obj)
+    track = get_track(access_token, songID)
+    key = track["key"]
+    return(key)
+
+def get_liveness(access_token, songID):
+    json_obj = search_request(access_token, "Happy People", "track")
+    songID = get_ID(json_obj)
+    track = get_track(access_token, songID)
+    liveness = track["liveness"]
+    return(liveness)
+
+def get_loudness(access_token, songID):
+    json_obj = search_request(access_token, "Happy People", "track")
+    songID = get_ID(json_obj)
+    track = get_track(access_token, songID)
+    loudness = track["loudness"]
+    return(loudness)
+
+def get_speechiness(access_token, songID):
+    json_obj = search_request(access_token, "Happy People", "track")
+    songID = get_ID(json_obj)
+    track = get_track(access_token, songID)
+    speechiness = track["speechiness"]
+    return(speechiness)
+
+def get_tempo(access_token, songID):
+    json_obj = search_request(access_token, "Happy People", "track")
+    songID = get_ID(json_obj)
+    track = get_track(access_token, songID)
+    tempo = track["tempo"]
+    return(tempo)
+
+
 if __name__ == "__main__":
     main()
