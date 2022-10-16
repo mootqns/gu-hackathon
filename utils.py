@@ -3,6 +3,7 @@ import secret
 import json
 import requests
 import base64
+import pandas as pd
 
 # ---------------------
 # GU Hackathon
@@ -100,27 +101,24 @@ def get_time_signature(track):
     time_signature = track["time_signature"]
     return(time_signature)
 
-def get_track_info(access_token, name):
+def track_to_DataFrame(access_token, name):
     json_obj = search_request(access_token, name, "track")
     songID = get_ID(json_obj)
     track = get_track(access_token, songID)
-    acousticness = get_acousticness(track)
-    danceability = get_danceability(track)
-    duration_ms = get_duration_ms(track)
-    energy = get_energy(track)
-    instrumentalness = get_instrumentalness(track)
-    key = get_key(track)
-    liveness = get_liveness(track)
-    loudness = get_loudness(track)
-    speechiness = get_speechiness(track)
-    tempo = get_tempo(track)
-    time_signature = get_time_signature(track)
+
+    # eventually we will do this
+    df = pd.DataFrame.from_dict(track, orient="index")
+    return df.T
+
+
+def main():
+    access_token = get_access_token()
+    df = track_to_DataFrame(access_token, "Black Qualls")
+    print(df)
+    print('\n')
+    print(type(df))
 
 
 
-
-
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
