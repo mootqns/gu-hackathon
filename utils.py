@@ -115,10 +115,9 @@ def get_track_info(access_token, name):
     speechiness = get_speechiness(track)
     tempo = get_tempo(track)
     time_signature = get_time_signature(track)
-    
 
 
-    
+
 
 
 
