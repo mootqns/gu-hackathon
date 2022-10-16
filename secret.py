@@ -3,4 +3,3 @@ client_secret = "2fa62d91cd0948b5a01b830adc38ec3f"
 
 auth_endpoint = "https://accounts.spotify.com/api/token"
 search_API_endpoint = "https://api.spotify.com/v1/search"
-#test
